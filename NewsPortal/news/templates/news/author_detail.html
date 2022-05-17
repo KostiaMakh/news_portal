@@ -4,6 +4,10 @@
 
 {% load static %}
 
+{% block title %}
+    {{ author.name }} {{ author.surname }} : : {{ block.super }}
+{% endblock %}
+
 {% block content %}
     <div class="row main-content_detail">
 
@@ -55,7 +59,7 @@
                             <ul>
                                 {% for post in publications %}
 
-                                    <li><a href="#">{{ post.title }}</a></li>
+                                    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
 
                                 {% endfor %}
                             </ul>

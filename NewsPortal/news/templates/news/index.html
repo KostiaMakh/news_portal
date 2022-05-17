@@ -2,6 +2,12 @@
 
 {% load static %}
 
+{% block title %}
+
+    Новости шоубиза : : {{ block.super }}
+
+{% endblock %}
+
 {% block main_slide %}
 
     <div id="main-slide" class="align-items-center d-flex">
@@ -29,16 +35,31 @@
 
         {% for author in authors %}
 
-            <div class="col-md-4 ms-auto">
+            <div class="col-md-4 ms-auto mb-3">
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
-                        <div class="col-md-5 pt-3">
-                            <a href="{{ author.get_absolute_url }}"><img src="{{ author.photo.url }}" class="img-fluid rounded-start"
-                                 alt="photo-{{ author.surname }}"></a>
+                        <div class="col-md-5 pt-3 author-card-photo">
+
+                            {% if author.photo %}
+
+                                <a href="{{ author.get_absolute_url }}"><img src="{{ author.photo.url }}"
+                                                                             class="img-fluid rounded-start"
+                                                                             alt="photo-{{ author.surname }}"></a>
+
+                            {% else %}
+
+                                <a href="{% static 'general/img.png' %}"><img src="{{ author.photo.url }}"
+                                                                              class="img-fluid rounded-start"
+                                                                              alt="photo-{{ author.surname }}"></a>
+
+                            {% endif %}
+
                         </div>
                         <div class="col-md-7">
                             <div class="card-body">
-                                <h5 class="card-title"><a href="{{ author.get_absolute_url }}">{{ author.name }} {{ author.surname }}</a></h5>
+                                <h5 class="card-title"><a
+                                        href="{{ author.get_absolute_url }}">{{ author.name }} {{ author.surname }}</a>
+                                </h5>
 
                                 {% autoescape off %}
 
@@ -46,7 +67,8 @@
 
                                 {% endautoescape %}
 
-                                <p class="card-text rewies-count"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="card-text rewies-count"><small class="text-muted">Last updated 3 mins
+                                    ago</small></p>
                             </div>
                         </div>
                     </div>
@@ -56,4 +78,54 @@
         {% endfor %}
 
     </div>
+
+    <div class="row align-items-stretch" id="last-news">
+        <h2><span>Наши авторы</span></h2>
+
+        {% for author in authors %}
+
+            <div class="col-md-4 ms-auto mb-3">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-5 pt-3 author-card-photo">
+
+                            {% if author.photo %}
+
+                                <a href="{{ author.get_absolute_url }}"><img src="{{ author.photo.url }}"
+                                                                             class="img-fluid rounded-start"
+                                                                             alt="photo-{{ author.surname }}"></a>
+
+                            {% else %}
+
+                                <a href="{% static 'general/img.png' %}"><img src="{{ author.photo.url }}"
+                                                                              class="img-fluid rounded-start"
+                                                                              alt="photo-{{ author.surname }}"></a>
+
+                            {% endif %}
+
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title"><a
+                                        href="{{ author.get_absolute_url }}">{{ author.name }} {{ author.surname }}</a>
+                                </h5>
+
+                                {% autoescape off %}
+
+                                    <p class="card-text">{{ author.biography|truncatechars:90 }}</p>
+
+                                {% endautoescape %}
+
+                                <p class="card-text rewies-count"><small class="text-muted">Last updated 3 mins
+                                    ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
 {% endblock %}

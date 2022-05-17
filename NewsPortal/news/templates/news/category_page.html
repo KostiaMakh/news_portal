@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load side_bar_tag %}
+
+{% load pagination_tag %}
+
+{% load static %}
+
+{% block title %}
+    Категория : {{ category_page.title }}-p{{ page_obj.number }} : {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="row news_detail category-detail">
+
+        {% get_sidebar %}
+
+        <div class="timeline-block col-md-9">
+            <h1>Новости категории {{ category_page.title|lower }}</h1>
+
+            {% if page_obj.number == 1 %}
+                <div class="row category-description">
+                    <div class="col-md-3 category-photo">
+                        {% if category_page.photo %}
+
+                            <img src="{{ category_page.photo.url }}" alt="cat-{{ category_page.title}}">
+
+                        {% else %}
+
+                            <img src="{% static 'general/img.png' %}" alt="cat{{ category_page.title }}">
+
+                        {% endif %}
+
+                    </div>
+                    <div class="col-md-9">
+
+                        {% autoescape off %}
+
+                            {{ category_page.description }}
+
+                        {% endautoescape %}
+
+                    </div>
+                </div>
+            {% endif %}
+
+
+            {% for item in news %}
+
+                <div class="card text-start">
+                    <div class="card-header">
+                        <span>Категория: <a href="{{ item.category.get_absolute_url }}"
+                                            class="category-top-link">{{ item.category }}</a></span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <div class="row">
+                            <div class="col-md-3 timeline-photo">
+
+                                {% if item.photo %}
+
+                                    <img src="{{ item.photo.url }}" alt="photo-{{ item.title }}">
+
+                                {% else %}
+
+                                    <img src="{% static 'general/img.png' %}" alt="photo-{{ item.title }}">
+
+                                {% endif %}
+
+                            </div>
+                            <div class="col-md-9">
+                                <p class="card-text">
+
+                                    {% autoescape off %}
+
+                                        {{ item.content|truncatewords:50 }}
+
+                                    {% endautoescape %}
+
+                                </p>
+                                <a href="{{ item.get_absolute_url }}" class="btn">Читать полностью</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ item.created_at|timesince }}
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            {% get_pagination page_obj %}
+
+        </div>
+
+    </div>
+{% endblock %}

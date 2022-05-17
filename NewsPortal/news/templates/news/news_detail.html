@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% load side_bar_tag %}
+
+{% load static %}
+
+{% block title %}
+    {{ news.title }} : : {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="row news_detail">
+
+        {% get_sidebar %}
+
+        <div class="news-block col-md-9">
+            <h1>{{ news.title }}</h1>
+            <div class="news-photo">
+
+                {% if news.photo %}
+
+                    <img src="{{ news.photo.url }}" alt="photo-{{ news.title }}">
+
+                {% else %}
+
+                    <img src="{% static 'general/img.png' %}" alt="photo-{{ news.title }}">
+
+                {% endif %}
+
+            </div>
+            <div class="news-content">
+
+                {% autoescape off %}
+
+                    {{ news.content }}
+
+                {% endautoescape %}
+
+            </div>
+            <div class="news-references">
+                <span>Просмотров: {{ news.views }}</span>
+                <span>Опубликованно: {{ news.created_at|timesince }}</span>
+                <span>Автор:
+
+                    {% for author in authors %}
+                        <a href="{{ author.get_absolute_url }}">{{ author.surname }} {{ author.name }}</a>
+                        {% if author == authors.last %}.{% else %},{% endif %}
+
+                    {% endfor %}
+
+                    <div class="tags-cloud">
+                    <h5>Теги:</h5>
+
+                        {% for tag in tags %}
+
+                            <a class="btn">#{{ tag.title }}</a>
+
+                        {% endfor %}
+
+                </div>
+                 </span>
+            </div>
+        </div>
+    </div>
+{% endblock %}

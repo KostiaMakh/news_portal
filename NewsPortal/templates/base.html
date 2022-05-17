@@ -19,12 +19,25 @@
 
 {% block main_slide %}{% endblock %}
 
-<div class="container">
+<div class="container main-content-container">
 
     {% block content %}{% endblock %}
 
 </div>
-<footer></footer>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4 contact-block">
+                <h5>Контакты</h5>
+                <span>tel: <a href="tel:+380501112233">+38-050-111-22-33</a></span>
+                <span>mail: <a href="mailto:test@gmail.com">test@gmail.com</a></span>
+                <span>address: <a href="https://www.google.com.ua/maps/@50.4859508,30.4761125,16.44z?hl=ru">Ukraine Kiev st.Oliny Teligi</a></span>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"

@@ -9,8 +9,6 @@ register = template.Library()
 def get_sidebar():
     categories = Category.objects.annotate(cat=Count('news', filter=F('news__pk'))).filter(cat__gt=0)
     tags = Tag.objects.annotate(cat=Count('news', filter=F('news__pk'))).filter(cat__gt=0)
-    # categories = Category.objects.all()
-    # tags = Tag.objects.all()
     authors = Author.objects.all()
     return {'categories': categories,
             'tags': tags,
