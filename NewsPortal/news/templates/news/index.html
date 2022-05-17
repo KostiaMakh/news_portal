@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main_slide %}
+
+    <div id="main-slide" class="align-items-center d-flex">
+        <img src="{% static 'slides/istockphoto-528417441-1024x1024.jpg' %}" alt="main Slide">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <h1 class="col-12">Все новости культуры на одном сайте</h1>
+                <p class="col-12">Повседневная практика показывает, что реализация намеченного плана развития влечет за
+                    собой процесс внедрения и модернизации дальнейших направлений развитая системы массового участия?
+                    Задача организации, в особенности же реализация намеченного плана развития способствует подготовке и
+                    реализации системы масштабного изменения ряда параметров! С другой стороны начало повседневной
+                    работы по формированию позиции обеспечивает актуальность модели развития.</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="row align-items-stretch" id="authors-carousel">
+        <h2><span>Наши авторы</span></h2>
+
+        {% for author in authors %}
+
+            <div class="col-md-4 ms-auto">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-5 pt-3">
+                            <a href="{{ author.get_absolute_url }}"><img src="{{ author.photo.url }}" class="img-fluid rounded-start"
+                                 alt="photo-{{ author.surname }}"></a>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="{{ author.get_absolute_url }}">{{ author.name }} {{ author.surname }}</a></h5>
+
+                                {% autoescape off %}
+
+                                    <p class="card-text">{{ author.biography|truncatechars:90 }}</p>
+
+                                {% endautoescape %}
+
+                                <p class="card-text rewies-count"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">Авторы</a>
+
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% for author in authors %}
+
+            <li><a class="dropdown-item" href="{{ author.get_absolute_url }}">{{ author }}</a></li>
+
+        {% endfor %}
+
+    </ul>
+</li>
+

@@ -1,0 +1,14 @@
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+       aria-expanded="false">Теги</a>
+
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% for tag in tags %}
+
+            <li><a class="dropdown-item" href="{{ tag.get_absolute_url }}">{{ tag }}</a></li>
+
+        {% endfor %}
+
+    </ul>
+</li>
+

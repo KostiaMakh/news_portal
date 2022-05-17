@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% load side_bar_tag %}
+
+{% load static %}
+
+{% block content %}
+    <div class="row main-content_detail">
+
+        {% get_sidebar %}
+
+        <div class="author-block col-md-8">
+            <div class="author-information row">
+                <div class="author-photo col-md-4">
+
+                    {% if author.photo %}
+
+                        <img src="{{ author.photo.url }}" alt="photo-{{ author.surname }}-{{ author.name }}">
+
+                    {% else %}
+
+                        <img src="{% static 'general/img.png' %}">
+
+                    {% endif %}
+
+                </div>
+                <div class="about-author col-md-8">
+                    <h1>{{ author.surname }} {{ author.name }}</h1>
+                    <span><b>Имя: </b>{{ author.name }}</span>
+                    <span><b>Фамилия: </b>{{ author.surname }}</span>
+                    <span><b>Дата рождения: </b>{{ author.birthday|date:'d.n.Y' }}</span>
+                    <span><b>Возраст: </b>{{ author.birthday|timesince }} </span>
+                </div>
+            </div>
+            <div class="author-biography">
+
+                {% autoescape off %}
+
+                    {{ author.biography }}
+
+                {% endautoescape %}
+
+            </div>
+            <div class="accordion author-posts" id="accordionWorks">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Публикации автора
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <ul>
+                                {% for post in publications %}
+
+                                    <li><a href="#">{{ post.title }}</a></li>
+
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form>
+                <h3>Связаться с автором</h3>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

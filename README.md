@@ -1,0 +1,3 @@
+NewsPortal
+
+Dajango application.
