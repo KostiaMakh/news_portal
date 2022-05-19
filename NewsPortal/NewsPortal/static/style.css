@@ -72,10 +72,44 @@ h2 {
       bottom: 40%;
       right: -80px; }
 
+#last-news {
+  margin-bottom: 50px; }
+  #last-news .row {
+    padding-bottom: 40px; }
+  #last-news .card {
+    overflow: hidden; }
+  #last-news .row {
+    position: relative; }
+  #last-news .rewies-count {
+    background-color: whitesmoke;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0; }
+    #last-news .rewies-count p {
+      padding: 8px 6px; }
+  #last-news h5 a {
+    text-decoration: none;
+    color: dimgrey;
+    font-size: 18px; }
+    #last-news h5 a:hover {
+      color: rgba(16, 152, 225, 0.62);
+      transition: 0.5s;
+      transform: scale(1.3); }
+
 #authors-carousel {
   margin-bottom: 50px; }
   #authors-carousel .card {
-    height: 100%; }
+    overflow: hidden; }
+  #authors-carousel .row {
+    padding-bottom: 40px; }
+  #authors-carousel .rewies-count {
+    background-color: whitesmoke;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+    #authors-carousel .rewies-count p {
+      padding: 8px 6px; }
   #authors-carousel h5 a {
     text-decoration: none;
     color: dimgrey;
@@ -261,7 +295,7 @@ footer {
 .pagination-block {
   display: flex;
   justify-content: center; }
-  .pagination-block .active-page a {
+  .pagination-block .pagination .active-page span {
     background-color: #96CBFE !important;
     color: white; }
 
@@ -293,19 +327,40 @@ footer {
 
   #authors-carousel {
     margin-bottom: 25px; }
+    #authors-carousel .row {
+      padding-bottom: 0; }
+    #authors-carousel .card-body {
+      padding-bottom: 0;
+      padding-top: 0; }
+    #authors-carousel .rewies-count {
+      position: static; }
     #authors-carousel .author-card-photo {
-      display: flex;
+      padding-top: 0 !important;
+      display: inherit;
       justify-content: center;
       margin-bottom: 14px; }
     #authors-carousel h5 a {
       font-size: 22px; }
 
+  #last-news {
+    margin-bottom: 25px; }
+    #last-news .row {
+      padding-bottom: 0; }
+    #last-news .card-body {
+      padding-bottom: 0;
+      padding-top: 0; }
+    #last-news .rewies-count {
+      position: static; }
+    #last-news .author-card-photo {
+      padding-top: 0 !important;
+      display: inherit;
+      justify-content: center;
+      margin-bottom: 14px; }
+    #last-news h5 a {
+      font-size: 22px; }
+
   .sidebar {
     display: none; }
-
-  .news_detail {
-    margin-top: 0;
-    margin-bottom: 8px; }
 
   footer {
     padding-bottom: 20px;

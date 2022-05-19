@@ -53,7 +53,7 @@
 
                         {% for tag in tags %}
 
-                            <a class="btn">#{{ tag.title }}</a>
+                            <a class="btn" href="{{ tag.get_absolute_url }}">#{{ tag.title }}</a>
 
                         {% endfor %}
 

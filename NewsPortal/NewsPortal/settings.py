@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
+import sys
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+sys.path.append(str(str(BASE_DIR) + '/NewsPortal/NewsPortal/'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -132,6 +135,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+EMAIL_HOST = 'smtp.ukr.net'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'djangotester@ukr.net'
+EMAIL_HOST_PASSWORD = 'MyH5v8qtYQhH8qzk'
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 

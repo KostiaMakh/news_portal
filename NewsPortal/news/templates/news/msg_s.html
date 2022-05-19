@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load side_bar_tag %}
+
+{% load static %}
+
+{% block title %}
+    Сообщение успешно отправленно : {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="row news_detail category-detail">
+
+        {% get_sidebar %}
+
+        <div class="timeline-block col-md-9">
+
+            <div class="alert alert-success" role="alert">
+                Сообщение успешно отправленно
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

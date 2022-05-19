@@ -1,20 +1,38 @@
-header nav {
-  padding-top: 15px; }
-  header nav .nav-link {
-    color: white !important;
-    font-size: 18px;
-    font-weight: bolder;
-    box-sizing: border-box;
-    border-bottom: 2px solid transparent;
-    border-top-left-radius: 35%;
-    border-top-right-radius: 35%; }
-    header nav .nav-link:hover {
-      border-bottom: 2px solid rgba(16, 152, 225, 0.62);
-      background-color: whitesmoke;
-      color: rgba(16, 152, 225, 0.62) !important;
-      transition: 0.8s; }
-header .navbar-nav {
-  justify-content: center !important; }
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400&family=Roboto:wght@400;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,500;1,8..60,200&display=swap");
+* {
+  font-family: 'Open Sans', sans-serif; }
+
+html {
+  height: 100%;
+  position: relative; }
+  html body {
+    height: 100%; }
+
+.main-content-container {
+  margin-bottom: 50px; }
+
+header {
+  z-index: 1; }
+  header nav {
+    padding-top: 15px; }
+    header nav .nav-link {
+      color: white !important;
+      padding: 10px 20px !important;
+      font-size: 20px;
+      font-weight: bolder;
+      box-sizing: border-box;
+      border-bottom: 2px solid transparent;
+      border-top-left-radius: 35%;
+      border-top-right-radius: 35%; }
+      header nav .nav-link:hover {
+        border-bottom: 2px solid rgba(16, 152, 225, 0.62);
+        background-color: whitesmoke;
+        color: rgba(16, 152, 225, 0.62) !important;
+        transition: 0.8s; }
+    header nav .container-fluid {
+      background-color: #96CBFE; }
+  header .navbar-nav {
+    justify-content: center !important; }
 
 #banner-main {
   position: absolute;
@@ -27,25 +45,327 @@ header .navbar-nav {
   border-bottom-right-radius: 30%;
   z-index: -1; }
 
-#authors-carousel h2 {
+h2 {
   display: block;
   color: rgba(16, 152, 225, 0.62);
   text-align: center;
   padding-bottom: 15px;
-  margin-bottom: 15px;
-  position: relative; }
-  #authors-carousel h2:after {
-    display: block;
-    content: '';
+  margin-bottom: 15px; }
+  h2 span {
+    position: relative; }
+    h2 span:after {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 60px;
+      background-color: rgba(16, 152, 225, 0.62);
+      bottom: 40%;
+      left: -80px; }
+    h2 span:before {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 60px;
+      background-color: rgba(16, 152, 225, 0.62);
+      bottom: 40%;
+      right: -80px; }
+
+#last-news {
+  margin-bottom: 50px; }
+  #last-news .row {
+    padding-bottom: 40px; }
+  #last-news .card {
+    overflow: hidden; }
+  #last-news .row {
+    position: relative; }
+  #last-news .rewies-count {
+    background-color: whitesmoke;
     position: absolute;
-    height: 2px;
-    width: 200px;
-    background-color: rgba(16, 152, 225, 0.62);
+    width: 100%;
     bottom: 0;
-    left: 50%;
-    margin-left: -100px; }
+    left: 0; }
+    #last-news .rewies-count p {
+      padding: 8px 6px; }
+  #last-news h5 a {
+    text-decoration: none;
+    color: dimgrey;
+    font-size: 18px; }
+    #last-news h5 a:hover {
+      color: rgba(16, 152, 225, 0.62);
+      transition: 0.5s;
+      transform: scale(1.3); }
+
+#authors-carousel {
+  margin-bottom: 50px; }
+  #authors-carousel .card {
+    overflow: hidden; }
+  #authors-carousel .row {
+    padding-bottom: 40px; }
+  #authors-carousel .rewies-count {
+    background-color: whitesmoke;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+    #authors-carousel .rewies-count p {
+      padding: 8px 6px; }
+  #authors-carousel h5 a {
+    text-decoration: none;
+    color: dimgrey;
+    font-size: 18px; }
+    #authors-carousel h5 a:hover {
+      color: rgba(16, 152, 225, 0.62);
+      transition: 0.5s;
+      transform: scale(1.3); }
 
 #main-slide {
-  height: 300px; }
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+  z-index: -2;
+  margin-bottom: 24px;
+  margin-top: -12px;
+  color: whitesmoke; }
+  #main-slide img {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  #main-slide h1 {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 34px;
+    display: block;
+    margin-bottom: 30px;
+    z-index: 3;
+    max-width: 700px;
+    text-align: center; }
+  #main-slide p {
+    font-style: italic;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 20px;
+    z-index: 3;
+    max-width: 700px;
+    text-align: center; }
+
+.main-content_detail {
+  margin-top: 80px;
+  border: 1px rgba(16, 149, 253, 0.13) solid; }
+
+.sidebar {
+  background-color: rgba(16, 149, 253, 0.13);
+  padding-top: 30px;
+  padding-bottom: 50px; }
+  .sidebar .accordion-header button {
+    color: dimgrey;
+    font-size: 18px; }
+  .sidebar .flush-collapseOne {
+    background-color: transparent; }
+  .sidebar .accordion-body li {
+    list-style-type: none;
+    margin-bottom: 12px; }
+  .sidebar .accordion-body a {
+    text-decoration: none;
+    color: dimgrey;
+    font-size: 18px; }
+
+.author-block .author-information .author-photo {
+  padding: 12px; }
+  .author-block .author-information .author-photo img {
+    width: 100%; }
+.author-block .author-information .about-author {
+  padding: 12px; }
+  .author-block .author-information .about-author h1 {
+    margin-bottom: 24px; }
+  .author-block .author-information .about-author span {
+    display: block;
+    margin-bottom: 12px; }
+.author-block .author-information .author-biography {
+  margin-bottom: 14px; }
+.author-block form {
+  margin-bottom: 40px; }
+  .author-block form h3 {
+    display: block;
+    margin-bottom: 20px; }
+.author-block .author-posts .accordion-body {
+  padding-bottom: 0;
+  padding-top: 0; }
+.author-block .author-posts ul {
+  margin: 0; }
+  .author-block .author-posts ul a {
+    text-decoration: none;
+    color: dimgrey; }
+    .author-block .author-posts ul a:hover {
+      color: rgba(16, 152, 225, 0.62);
+      transition: 0.5s; }
+  .author-block .author-posts ul li {
+    list-style-type: none;
+    padding-bottom: 12px; }
+
+.news_detail {
+  margin-bottom: 70px;
+  margin-top: 80px; }
+  .news_detail h1 {
+    display: block;
+    margin-bottom: 14px; }
+  .news_detail .news-photo {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px; }
+    .news_detail .news-photo img {
+      height: 100%; }
+  .news_detail .news-references span {
+    display: block;
+    margin-bottom: 12px;
+    color: dimgrey; }
+    .news_detail .news-references span a {
+      text-decoration: none;
+      color: darkgrey; }
+      .news_detail .news-references span a:hover {
+        color: rgba(16, 152, 225, 0.62);
+        transition: 0.5s; }
+  .news_detail .tags-cloud {
+    margin-top: 14px; }
+    .news_detail .tags-cloud .btn {
+      background-color: #96CBFE;
+      color: white;
+      margin: 6px; }
+      .news_detail .tags-cloud .btn:hover {
+        color: #96CBFE;
+        background-color: white;
+        transform: scale(1.07);
+        transition: 0.8s; }
+    .news_detail .tags-cloud a {
+      text-decoration: none; }
+
+.category-detail .category-description {
+  position: relative;
+  margin-bottom: 30px; }
+  .category-detail .category-description .category-photo {
+    padding: 10px; }
+    .category-detail .category-description .category-photo img {
+      width: 100%; }
+
+.timeline-block h1 {
+  color: dimgrey; }
+.timeline-block .card {
+  margin-bottom: 15px; }
+.timeline-block .category-top-link {
+  text-decoration: none;
+  font-style: italic;
+  padding-left: 4px;
+  color: dimgrey; }
+  .timeline-block .category-top-link:hover {
+    color: #96CBFE;
+    transition: 0.5s; }
+.timeline-block .btn {
+  background-color: #96CBFE;
+  color: white; }
+  .timeline-block .btn:hover {
+    color: #96CBFE;
+    background-color: whitesmoke;
+    transform: scale(1.04);
+    transition: 0.8s; }
+.timeline-block .timeline-photo {
+  padding-top: 10px;
+  overflow: hidden; }
+  .timeline-block .timeline-photo img {
+    width: 100%; }
+
+footer {
+  position: absolute;
+  background-position-x: center;
+  background-position-y: top;
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 40px;
+  background-color: #96CBFE;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%; }
+  footer .contact-block span {
+    display: block;
+    color: dimgrey; }
+
+#accordionWorks {
+  margin-bottom: 20px; }
+
+.pagination-block {
+  display: flex;
+  justify-content: center; }
+  .pagination-block .pagination .active-page span {
+    background-color: #96CBFE !important;
+    color: white; }
+
+@media screen and (max-width: 568px) {
+  header {
+    background-color: #96CBFE;
+    margin-bottom: 12px; }
+    header #banner-main {
+      display: none; }
+    header .dropdown-menu {
+      margin-bottom: 12px; }
+    header .navbar-collapse {
+      padding-bottom: 20px; }
+    header nav .navbar-toggler {
+      border-color: whitesmoke; }
+    header nav .navbar-collapse {
+      padding-bottom: 20px; }
+    header nav .navbar-nav {
+      justify-content: space-between !important; }
+    header nav .nav-link {
+      border-bottom: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0; }
+    header nav ul {
+      margin-bottom: 20px !important; }
+
+  .main-content_detail {
+    margin-top: 0; }
+
+  #authors-carousel {
+    margin-bottom: 25px; }
+    #authors-carousel .row {
+      padding-bottom: 0; }
+    #authors-carousel .card-body {
+      padding-bottom: 0;
+      padding-top: 0; }
+    #authors-carousel .rewies-count {
+      position: static; }
+    #authors-carousel .author-card-photo {
+      padding-top: 0 !important;
+      display: inherit;
+      justify-content: center;
+      margin-bottom: 14px; }
+    #authors-carousel h5 a {
+      font-size: 22px; }
+
+  #last-news {
+    margin-bottom: 25px; }
+    #last-news .row {
+      padding-bottom: 0; }
+    #last-news .card-body {
+      padding-bottom: 0;
+      padding-top: 0; }
+    #last-news .rewies-count {
+      position: static; }
+    #last-news .author-card-photo {
+      padding-top: 0 !important;
+      display: inherit;
+      justify-content: center;
+      margin-bottom: 14px; }
+    #last-news h5 a {
+      font-size: 22px; }
+
+  .sidebar {
+    display: none; }
+
+  footer {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0; } }
 
 /*# sourceMappingURL=style.css.map */
